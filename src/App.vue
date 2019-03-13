@@ -3,7 +3,7 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <div>
       <div class="button-container">
-        <SimpleButton msg="Hello, I'm a button"/>
+        <SimpleButton title="Hello, I'm a button"/>
       </div>
       <div class="button-container">
         <DropdownButton title="Hello, I'm also a button" :options="['I also', 'have', 'a few', 'options']"/>

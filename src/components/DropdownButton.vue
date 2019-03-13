@@ -1,5 +1,5 @@
 <template>
-  <div @click="onClickEvent(null)">
+  <div @click="onClickEvent(null)" class="button">
     <span>{{ title }}</span>
     <span @click="expand" class="expand">
       <i :class="{
@@ -24,13 +24,17 @@ export default {
 
   data() {
     return {
-      expanded: false,
+      expanded: this.expands,
     }
   },
 
   props: {
     title: String,
     options: Array,
+    expands: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   methods: {
@@ -54,14 +58,6 @@ export default {
 </script>
 
 <style scoped>
-  div {
-    display: inline-block;
-    color: #000;
-    border: 1px solid #444;
-    border-radius: 3px;
-    padding: 6px;
-  }
-
   .expand {
     text-align: right;
     padding-left: 10px
@@ -72,6 +68,10 @@ export default {
     padding: 0;
     overflow: auto;
     margin-left: 6px;
+    border: 1px solid black;
+    border-radius: 3px;
+
+    display: inline-block;
   }
 
   ul {
@@ -92,9 +92,10 @@ export default {
 </style>
 
 <docs>
+  Simple
 ```
   <DropdownButton
-      title="Hello, I'm also a button"
+      title="Hello, I'm a button"
       :options="[
         'I also',
         'have',
@@ -102,5 +103,21 @@ export default {
         'options'
       ]"
   />
+```
+
+Expanded
+```
+  <div style="height:120px;">
+    <DropdownButton
+      title="Hello, I'm a button"
+      :expands="true"
+      :options="[
+        'I also',
+        'have',
+        'a few',
+        'options'
+      ]"
+    />
+  </div>
 ```
 </docs>
