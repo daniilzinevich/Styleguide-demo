@@ -1,17 +1,26 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>
+      <div class="button-container">
+        <SimpleButton msg="Hello, I'm a button"/>
+      </div>
+      <div class="button-container">
+        <DropdownButton title="Hello, I'm also a button" :options="['I also', 'have', 'a few', 'options']"/>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SimpleButton from './components/SimpleButton.vue'
+import DropdownButton from './components/DropdownButton.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    SimpleButton,
+    DropdownButton,
   }
 }
 </script>
@@ -24,5 +33,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.button-container {
+  padding-bottom: 10px;
 }
 </style>
